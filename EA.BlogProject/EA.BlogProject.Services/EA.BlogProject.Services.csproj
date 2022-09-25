@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EA.BlogProject.Data\EA.BlogProject.Data.csproj" />
+    <ProjectReference Include="..\EA.BlogProject.Entities\EA.BlogProject.Entities.csproj" />
+    <ProjectReference Include="..\EA.BlogProject.Shared\EA.BlogProject.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

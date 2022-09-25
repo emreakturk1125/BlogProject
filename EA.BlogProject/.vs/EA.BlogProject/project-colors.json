@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "6f86ff0e-0af1-4cd7-b896-73c95e44dd04": {
+      "ProjectGuid": "6f86ff0e-0af1-4cd7-b896-73c95e44dd04",
+      "DisplayName": "EA.BlogProject.Shared",
+      "ColorIndex": 0
+    },
+    "cf957061-829e-41dc-9c64-88c503d95ff8": {
+      "ProjectGuid": "cf957061-829e-41dc-9c64-88c503d95ff8",
+      "DisplayName": "EA.BlogProject.Entities",
+      "ColorIndex": 1
+    },
+    "4d77d28a-31a2-47ec-be95-ed6013fc2ede": {
+      "ProjectGuid": "4d77d28a-31a2-47ec-be95-ed6013fc2ede",
+      "DisplayName": "EA.BlogProject.Data",
+      "ColorIndex": 2
+    },
+    "2998275b-2667-414f-ac62-fe2f9936a95a": {
+      "ProjectGuid": "2998275b-2667-414f-ac62-fe2f9936a95a",
+      "DisplayName": "EA.BlogProject.Services",
+      "ColorIndex": 3
+    },
+    "b9caccca-6859-4011-9397-730d48a3958c": {
+      "ProjectGuid": "b9caccca-6859-4011-9397-730d48a3958c",
+      "DisplayName": "EA.BlogProject.WebUI",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "Miscellaneous Files",
+      "ColorIndex": -1
+    },
+    "a1f356c5-a572-4c0e-88b8-b2a6601e8c57": {
+      "ProjectGuid": "a1f356c5-a572-4c0e-88b8-b2a6601e8c57",
+      "DisplayName": "Read",
+      "ColorIndex": 5
+    }
+  },
+  "NextColorIndex": 6
+}
