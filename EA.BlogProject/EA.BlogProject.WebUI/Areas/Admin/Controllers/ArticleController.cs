@@ -136,6 +136,8 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             return View(articleUpdateViewModel);
         }
 
+        // Test
+
         [HttpPost]
         public async Task<JsonResult> Delete(int articleId)
         {
