@@ -34,7 +34,7 @@ namespace EA.BlogProject.Data.Migrations
 
                     b.Property<string>("Content")
                         .IsRequired()
-                        .HasColumnType("NVARCHAR(MAX)");
+                        .HasColumnType("nvarchar(MAX)");
 
                     b.Property<string>("CreatedByName")
                         .IsRequired()
@@ -103,6 +103,52 @@ namespace EA.BlogProject.Data.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Articles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 1,
+                            CommentCount = 1,
+                            Content = "Lorem ipsum dolor it damet",
+                            CreatedByName = "InitialCreate",
+                            CreatedDate = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(4611),
+                            Date = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(2320),
+                            IsActive = true,
+                            IsDeleted = false,
+                            ModifiedByName = "InitialCreate",
+                            ModifiedDate = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(5674),
+                            Note = "note - deneme",
+                            SeoAuthor = "Emre Aktürk",
+                            SeoDescription = "C# 9.0 Yenilikler",
+                            SeoTags = "c#,c#9,.Net5",
+                            Thumbnail = "default.jpg",
+                            Title = "C# 9.0 Yenilikler",
+                            UserId = 1,
+                            ViewsCount = 100
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 1,
+                            CommentCount = 1,
+                            Content = "Lorem ipsum dolor it damet",
+                            CreatedByName = "InitialCreate",
+                            CreatedDate = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(8277),
+                            Date = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(8274),
+                            IsActive = true,
+                            IsDeleted = false,
+                            ModifiedByName = "InitialCreate",
+                            ModifiedDate = new DateTime(2022, 9, 25, 13, 50, 19, 996, DateTimeKind.Local).AddTicks(8279),
+                            Note = "note - deneme",
+                            SeoAuthor = "Emre Aktürk",
+                            SeoDescription = "C++ 8.0 Yenilikler",
+                            SeoTags = "c++",
+                            Thumbnail = "default.jpg",
+                            Title = "C++ 8.0 Yenilikler",
+                            UserId = 1,
+                            ViewsCount = 120
+                        });
                 });
 
             modelBuilder.Entity("EA.BlogProject.Entities.Concrete.Category", b =>
@@ -156,12 +202,12 @@ namespace EA.BlogProject.Data.Migrations
                         {
                             Id = 1,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1399),
+                            CreatedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(62),
                             Description = "c# ile ilgili en güncel",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1684),
+                            ModifiedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(83),
                             Name = "c#",
                             Note = "c# blog kategorisi"
                         },
@@ -169,12 +215,12 @@ namespace EA.BlogProject.Data.Migrations
                         {
                             Id = 2,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1982),
+                            CreatedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(102),
                             Description = "c++ ile ilgili en güncel",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1983),
+                            ModifiedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(104),
                             Name = "c++",
                             Note = "c++ blog kategorisi"
                         },
@@ -182,12 +228,12 @@ namespace EA.BlogProject.Data.Migrations
                         {
                             Id = 3,
                             CreatedByName = "InitialCreate",
-                            CreatedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1987),
+                            CreatedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(111),
                             Description = "Java ile ilgili en güncel",
                             IsActive = true,
                             IsDeleted = false,
                             ModifiedByName = "InitialCreate",
-                            ModifiedDate = new DateTime(2022, 8, 29, 16, 54, 7, 762, DateTimeKind.Local).AddTicks(1988),
+                            ModifiedDate = new DateTime(2022, 9, 25, 13, 50, 20, 3, DateTimeKind.Local).AddTicks(112),
                             Name = "Java",
                             Note = "Java blog kategorisi"
                         });
@@ -273,14 +319,14 @@ namespace EA.BlogProject.Data.Migrations
                         new
                         {
                             Id = 1,
-                            ConcurrencyStamp = "18cc81f6-acff-4239-b573-9fe49f8fe40b",
+                            ConcurrencyStamp = "fdebaffc-eea6-4e19-a50c-d7f57b6f8d12",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         },
                         new
                         {
                             Id = 2,
-                            ConcurrencyStamp = "c429d0f7-bd8d-4024-98aa-3b0ba2fc3dd5",
+                            ConcurrencyStamp = "f2b141bd-70b6-4050-8766-a3e1144fa9ae",
                             Name = "Editör",
                             NormalizedName = "EDITOR"
                         });
@@ -385,17 +431,17 @@ namespace EA.BlogProject.Data.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b0a5b052-d36a-423e-8326-e078d985faed",
+                            ConcurrencyStamp = "95250966-99cc-4d3f-b956-980bcfe25045",
                             Email = "admin@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@HOTMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFnfJTn0yG+3b3J1oIfU5m7jRfRzM7yuGmPD0iZF4GvtddJR7btU5Q8aFdw+R2yRvA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEu9qUv7rqfhNDERkPnisa1S7ven5MSM8Y1FPOu2aeBpn9T2E6F2qhhnwmen/JzCSw==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "defaultUser.jpg",
-                            SecurityStamp = "94fa4ec4-ebff-4426-a041-7d4d058034ae",
+                            SecurityStamp = "726a91ff-ece6-42c7-9d43-be310bb73f68",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -403,17 +449,17 @@ namespace EA.BlogProject.Data.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "203b3320-221d-4042-a538-ffce3a108c2d",
+                            ConcurrencyStamp = "02eac76b-8d06-4714-98d5-1be506d0bc05",
                             Email = "editor@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             NormalizedEmail = "EDITOR@HOTMAIL.COM",
                             NormalizedUserName = "EDITOR",
-                            PasswordHash = "AQAAAAEAACcQAAAAEJqshjwhs4KBB9M6Rk/4PIMvaGhKtdZ1vGqD+1U3IXS889z/QcqqIHsHzLU5pml1KQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHfzS3h5dUB/SIMmBHTomzz2WPx6CdktvBepz08OAoQnE8mF6yaVHYLsxrl6ovqtgg==",
                             PhoneNumber = "+905555555555",
                             PhoneNumberConfirmed = true,
                             Picture = "defaultUser.jpg",
-                            SecurityStamp = "1ce873bd-094b-4a06-a133-3aef448f1381",
+                            SecurityStamp = "aa21b86f-5fa3-478e-82f0-dbc541dde6bb",
                             TwoFactorEnabled = false,
                             UserName = "editor"
                         });

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using EA.BlogProject.Entities.ComplexTypes;
 using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Entities.Dtos;
 using EA.BlogProject.Mvc.Helpers.Abstract;
@@ -114,7 +115,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userAddDto.UserName, userAddDto.PictureFile);
+                var uploadedImageDtoResult = await _imageHelper.Upload(userAddDto.UserName, userAddDto.PictureFile, PictureType.User);
                 userAddDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
                     ? uploadedImageDtoResult.Data.FullName
                     : "userImages/defaultUser.png";
@@ -215,7 +216,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                 var oldUserPicture = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    var uploadedImageDtoResult = await _imageHelper.Upload(userUpdateDto.UserName, userUpdateDto.PictureFile, PictureType.User);
                     userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
                         ? uploadedImageDtoResult.Data.FullName
                         : "userImages/defaultUser.png";
@@ -290,7 +291,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                 var oldUserPicture = oldUser.Picture;
                 if (userUpdateDto.PictureFile != null)
                 {
-                    var uploadedImageDtoResult = await _imageHelper.UploadUserImage(userUpdateDto.UserName, userUpdateDto.PictureFile);
+                    var uploadedImageDtoResult = await _imageHelper.Upload(userUpdateDto.UserName, userUpdateDto.PictureFile, PictureType.User);
                     userUpdateDto.Picture = uploadedImageDtoResult.ResultStatus == ResultStatus.Success
                         ? uploadedImageDtoResult.Data.FullName
                         : "userImages/defaultUser.png";

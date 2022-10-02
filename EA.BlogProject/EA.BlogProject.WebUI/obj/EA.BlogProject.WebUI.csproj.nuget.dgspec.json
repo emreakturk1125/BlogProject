@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj": {}
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj": {
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj",
+        "projectUniqueName": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj",
         "projectName": "EA.BlogProject.Data",
-        "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj",
-        "packagesPath": "C:\\Users\\emre.akturk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\obj\\",
+        "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj",
+        "packagesPath": "C:\\Users\\aktur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emre.akturk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aktur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,11 +32,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj"
               },
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
               }
             }
           }
@@ -78,8 +82,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -88,21 +91,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj",
         "projectName": "EA.BlogProject.Entities",
-        "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj",
-        "packagesPath": "C:\\Users\\emre.akturk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\obj\\",
+        "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj",
+        "packagesPath": "C:\\Users\\aktur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emre.akturk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aktur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -116,8 +123,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
               }
             }
           }
@@ -143,8 +150,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -153,21 +159,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj": {
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj",
+        "projectUniqueName": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj",
         "projectName": "EA.BlogProject.Services",
-        "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj",
-        "packagesPath": "C:\\Users\\emre.akturk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\obj\\",
+        "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj",
+        "packagesPath": "C:\\Users\\aktur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emre.akturk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aktur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -181,14 +191,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Data\\EA.BlogProject.Data.csproj"
               },
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Entities\\EA.BlogProject.Entities.csproj"
               },
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj"
               }
             }
           }
@@ -218,8 +228,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -228,21 +237,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj",
         "projectName": "EA.BlogProject.Shared",
-        "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj",
-        "packagesPath": "C:\\Users\\emre.akturk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Shared\\obj\\",
+        "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\EA.BlogProject.Shared.csproj",
+        "packagesPath": "C:\\Users\\aktur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emre.akturk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aktur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -283,8 +296,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -293,21 +305,25 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj": {
+    "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj",
+        "projectUniqueName": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj",
         "projectName": "EA.BlogProject.WebUI",
-        "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj",
-        "packagesPath": "C:\\Users\\emre.akturk\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.WebUI\\obj\\",
+        "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.WebUI\\EA.BlogProject.WebUI.csproj",
+        "packagesPath": "C:\\Users\\aktur\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.WebUI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\emre.akturk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\aktur\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -321,8 +337,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj": {
-                "projectPath": "C:\\Users\\emre.akturk\\source\\repos\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj"
+              "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj": {
+                "projectPath": "C:\\Users\\aktur\\Documents\\GitHub\\BlogProject\\EA.BlogProject\\EA.BlogProject.Services\\EA.BlogProject.Services.csproj"
               }
             }
           }
@@ -354,6 +370,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.17, )"
+            },
+            "xunit.extensibility.core": {
+              "target": "Package",
+              "version": "[2.4.2, )"
             }
           },
           "imports": [
@@ -362,8 +382,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -375,7 +394,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

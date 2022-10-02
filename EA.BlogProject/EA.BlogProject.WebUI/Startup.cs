@@ -3,6 +3,7 @@ using EA.BlogProject.Mvc.Helpers.Abstract;
 using EA.BlogProject.Mvc.Helpers.Concrete;
 using EA.BlogProject.Services.AutoMapper.Profiles;
 using EA.BlogProject.Services.Extensions;
+using EA.BlogProject.WebUI.AutoMapper.Profiles;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -34,7 +35,7 @@ namespace EA.BlogProject.WebUI
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;   // Json a dönüştürdüğümüz değer içinde farklı değerler varsa onlarında gönderilmesi için (controller içinde de bu değeri eklememiz gerekiyor şimdilik bugfix olduğu için)
             });
             services.AddSession();
-            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile));
+            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile), typeof(ViewModelsProfile));
             services.LoadMyServices(Configuration.GetConnectionString("LocalDB"));
             services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>

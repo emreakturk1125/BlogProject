@@ -63,54 +63,54 @@ namespace EA.BlogProject.Data.Concrete.EntityFramework.Mappings
             builder.ToTable("Articles");
 
 
-             
 
-            //builder.HasData(
-            //    new Article
-            //    {
-            //        Id = 1,
-            //        CategoryId = 1,
-            //        Title = "C# 9.0 Yenilikler",
-            //        Content = "Lorem ipsum dolor it damet",
-            //        Thumbnail = "default.jpg",
-            //        SeoDescription = "C# 9.0 Yenilikler",
-            //        SeoTags = "c#,c#9,.Net5",
-            //        SeoAuthor = "Emre Aktürk",
-            //        Date = DateTime.Now,
-            //        IsActive = true,
-            //        IsDeleted = false,
-            //        CreatedByName = "InitialCreate",
-            //        CreatedDate = DateTime.Now,
-            //        ModifiedByName = "InitialCreate",
-            //        ModifiedDate = DateTime.Now,
-            //        Note = "note - deneme",
-            //        UserId = 1,
-            //        ViewsCount = 100,
-            //        CommentCount = 1,
-            //    },
-            //     new Article
-            //     {
-            //         Id = 2,
-            //         CategoryId = 1,
-            //         Title = "C++ 8.0 Yenilikler",
-            //         Content = "Lorem ipsum dolor it damet",
-            //         Thumbnail = "default.jpg",
-            //         SeoDescription = "C++ 8.0 Yenilikler",
-            //         SeoTags = "c++",
-            //         SeoAuthor = "Emre Aktürk",
-            //         Date = DateTime.Now,
-            //         IsActive = true,
-            //         IsDeleted = false,
-            //         CreatedByName = "InitialCreate",
-            //         CreatedDate = DateTime.Now,
-            //         ModifiedByName = "InitialCreate",
-            //         ModifiedDate = DateTime.Now,
-            //         Note = "note - deneme",
-            //         UserId = 1,
-            //         ViewsCount = 120,
-            //         CommentCount = 1,
-            //     }
-            //    );
+
+            builder.HasData(
+                new Article
+                {
+                    Id = 1,
+                    CategoryId = 1,
+                    Title = "C# 9.0 Yenilikler",
+                    Content = "Lorem ipsum dolor it damet",
+                    Thumbnail = "default.jpg",
+                    SeoDescription = "C# 9.0 Yenilikler",
+                    SeoTags = "c#,c#9,.Net5",
+                    SeoAuthor = "Emre Aktürk",
+                    Date = DateTime.Now,
+                    IsActive = true,
+                    IsDeleted = false,
+                    CreatedByName = "InitialCreate",
+                    CreatedDate = DateTime.Now,
+                    ModifiedByName = "InitialCreate",
+                    ModifiedDate = DateTime.Now,
+                    Note = "note - deneme",
+                    UserId = 1,
+                    ViewsCount = 100,
+                    CommentCount = 1,
+                },
+                 new Article
+                 {
+                     Id = 2,
+                     CategoryId = 1,
+                     Title = "C++ 8.0 Yenilikler",
+                     Content = "Lorem ipsum dolor it damet",
+                     Thumbnail = "default.jpg",
+                     SeoDescription = "C++ 8.0 Yenilikler",
+                     SeoTags = "c++",
+                     SeoAuthor = "Emre Aktürk",
+                     Date = DateTime.Now,
+                     IsActive = true,
+                     IsDeleted = false,
+                     CreatedByName = "InitialCreate",
+                     CreatedDate = DateTime.Now,
+                     ModifiedByName = "InitialCreate",
+                     ModifiedDate = DateTime.Now,
+                     Note = "note - deneme",
+                     UserId = 1,
+                     ViewsCount = 120,
+                     CommentCount = 1,
+                 }
+                );
         }
     }
 }

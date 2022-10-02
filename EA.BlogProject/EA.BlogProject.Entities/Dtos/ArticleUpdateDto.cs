@@ -66,5 +66,8 @@ namespace EA.BlogProject.Entities.Dtos
         [DisplayName("Silinsin Mi?")]
         [Required(ErrorMessage = "{0} boş geçilmemelidir.")]
         public bool IsDeleted { get; set; }
+
+        [Required]
+        public int UserId { get; set; }
     }
 }
