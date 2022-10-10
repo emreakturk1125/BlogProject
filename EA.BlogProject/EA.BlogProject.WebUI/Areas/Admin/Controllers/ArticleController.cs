@@ -9,6 +9,7 @@ using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
 using EA.BlogProject.WebUI.Areas.Admin.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using NToastNotify;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -18,13 +19,15 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class ArticleController : BaseController
     {
-        private readonly IArticleService _articleService; 
-        private readonly ICategoryService  _categoryService; 
+        private readonly IArticleService _articleService;
+        private readonly ICategoryService _categoryService;
+        private readonly IToastNotification _toastNotification;
 
-        public ArticleController(IArticleService articleService, ICategoryService categoryService,UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper) : base(userManager, mapper, imageHelper) 
+        public ArticleController(IArticleService articleService, ICategoryService categoryService, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
         {
             _articleService = articleService;
-            _categoryService = categoryService; 
+            _categoryService = categoryService;
+            _toastNotification = toastNotification;
         }
 
         [HttpGet]
@@ -34,7 +37,6 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
             return NotFound();
         }
-
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -48,22 +50,23 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             }
 
             return NotFound();
-          }
+        }
         [HttpPost]
         public async Task<IActionResult> Add(ArticleAddViewModel articleAddViewModel)
         {
             if (ModelState.IsValid)
             {
                 var articleAddDto = Mapper.Map<ArticleAddDto>(articleAddViewModel);
-                var imageResult = await ImageHelper.Upload(articleAddViewModel.Title, articleAddViewModel.ThumbnailFile, PictureType.Post);
+                var imageResult = await ImageHelper.Upload(articleAddViewModel.Title,
+                    articleAddViewModel.ThumbnailFile, PictureType.Post);
                 articleAddDto.Thumbnail = imageResult.Data.FullName;
-                var result = await _articleService.AddAsync(articleAddDto, LoggedInUser.UserName,LoggedInUser.Id);
+                var result = await _articleService.AddAsync(articleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
                 if (result.ResultStatus == ResultStatus.Success)
                 {
-                    //_toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
-                    //{
-                    //    Title = "Başarılı İşlem!"
-                    //});
+                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                    {
+                        Title = "Başarılı İşlem!"
+                    });
                     return RedirectToAction("Index", "Article");
                 }
                 else
@@ -119,10 +122,10 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                     {
                         ImageHelper.Delete(oldThumbnail);
                     }
-                    //_toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
-                    //{
-                    //    Title = "Başarılı İşlem!"
-                    //});
+                    _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                    {
+                        Title = "Başarılı İşlem!"
+                    });
                     return RedirectToAction("Index", "Article");
                 }
                 else
@@ -135,8 +138,6 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             articleUpdateViewModel.Categories = categories.Data.Categories;
             return View(articleUpdateViewModel);
         }
-
-        // Test
 
         [HttpPost]
         public async Task<JsonResult> Delete(int articleId)

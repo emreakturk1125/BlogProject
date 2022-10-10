@@ -837,3 +837,7 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\Update.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\xunit.abstractions.dll
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\xunit.core.dll
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\EA.BlogProject.WebUI.StaticWebAssets.xml
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\staticwebassets\EA.BlogProject.WebUI.StaticWebAssets.xml
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\NToastNotify.Views.dll
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\NToastNotify.dll

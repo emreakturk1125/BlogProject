@@ -33,9 +33,9 @@ namespace EA.BlogProject.WebUI
             {
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());  // Enum dönüştürücü 
                 opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;   // Json a dönüştürdüğümüz değer içinde farklı değerler varsa onlarında gönderilmesi için (controller içinde de bu değeri eklememiz gerekiyor şimdilik bugfix olduğu için)
-            });
+            }).AddNToastNotifyToastr();
             services.AddSession();
-            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile), typeof(ViewModelsProfile));
+            services.AddAutoMapper(typeof(CategoryProfile), typeof(ArticleProfile), typeof(UserProfile), typeof(ViewModelsProfile), typeof(CommentProfile));
             services.LoadMyServices(Configuration.GetConnectionString("LocalDB"));
             services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>
@@ -73,6 +73,8 @@ namespace EA.BlogProject.WebUI
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseNToastNotify();
 
             app.UseEndpoints(endpoints =>
             {

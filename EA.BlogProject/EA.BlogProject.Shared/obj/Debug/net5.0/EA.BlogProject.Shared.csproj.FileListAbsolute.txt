@@ -14,7 +14,6 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\bin\Debug\net5.0\EA.BlogProject.Shared.dll
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\bin\Debug\net5.0\ref\EA.BlogProject.Shared.dll
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\bin\Debug\net5.0\EA.BlogProject.Shared.pdb
-C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\obj\Debug\net5.0\EA.BlogProject.Shared.csproj.AssemblyReference.cache
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\obj\Debug\net5.0\EA.BlogProject.Shared.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\obj\Debug\net5.0\EA.BlogProject.Shared.AssemblyInfoInputs.cache
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.Shared\obj\Debug\net5.0\EA.BlogProject.Shared.AssemblyInfo.cs

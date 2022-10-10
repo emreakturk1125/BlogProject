@@ -2,7 +2,7 @@
 
     /* DataTables start here. */
 
-   const dataTable = $('#articlesTable').DataTable({
+    const dataTable = $('#articlesTable').DataTable({
         dom:
             "<'row'<'col-sm-3'l><'col-sm-6 text-center'B><'col-sm-3'f>>" +
             "<'row'<'col-sm-12'tr>>" +
@@ -137,7 +137,7 @@
             const articleTitle = tableRow.find('td:eq(2)').text();
             Swal.fire({
                 title: 'Silmek istediğinize emin misiniz?',
-                text: `${articleTitle} başlıklı makale silinecektir!`,
+                text: `${articleTitle} başlıklı makale silinicektir!`,
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

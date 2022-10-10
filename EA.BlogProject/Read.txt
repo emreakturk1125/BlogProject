@@ -10,3 +10,4 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> Asp.Net Identity
 -> Trumbowyg  (jquery text editörü),
 -> Select2 (searchable dropdownlist)
+-> NToastNotify (Bildirim işlemleri için kullanılabilir)
