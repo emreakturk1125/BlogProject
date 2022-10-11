@@ -841,3 +841,7 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\staticwebassets\EA.BlogProject.WebUI.StaticWebAssets.xml
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\NToastNotify.Views.dll
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\bin\Debug\net5.0\NToastNotify.dll
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\DeletedComments.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\Index.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentDetailPartial.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentUpdatePartial.cshtml.g.cs
