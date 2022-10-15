@@ -132,7 +132,7 @@ namespace EA.BlogProject.Services.Concrete
             }
             return new DataResult<ArticleListDto>(ResultStatus.Error, Messages.Article.NotFound(isPlural: true), null);
         }
-
+         
         public async Task<IResult> AddAsync(ArticleAddDto articleAddDto, string createdByName, int userId)
         {
             var article = Mapper.Map<Article>(articleAddDto);
@@ -187,17 +187,17 @@ namespace EA.BlogProject.Services.Concrete
         public async Task<IResult> UndoDeleteAsync(int articleId, string modifiedByName)
         {
             var result = await UnitOfWork.Articles.AnyAsync(a => a.Id == articleId);
-            //if (result)
-            //{
-            //    var article = await UnitOfWork.Articles.GetAsync(a => a.Id == articleId);
-            //    article.IsDeleted = false;
-            //    article.IsActive = true;
-            //    article.ModifiedByName = modifiedByName;
-            //    article.ModifiedDate = DateTime.Now;
-            //    await UnitOfWork.Articles.UpdateAsync(article);
-            //    await UnitOfWork.SaveAsync();
-            //    return new Result(ResultStatus.Success, Messages.Article.UndoDelete(article.Title));
-            //}
+            if (result)
+            {
+                var article = await UnitOfWork.Articles.GetAsync(a => a.Id == articleId);
+                article.IsDeleted = false;
+                article.IsActive = true;
+                article.ModifiedByName = modifiedByName;
+                article.ModifiedDate = DateTime.Now;
+                await UnitOfWork.Articles.UpdateAsync(article);
+                await UnitOfWork.SaveAsync();
+                return new Result(ResultStatus.Success, Messages.Article.UndoDelete(article.Title));
+            }
             return new Result(ResultStatus.Error, Messages.Article.NotFound(isPlural: false));
         }
 

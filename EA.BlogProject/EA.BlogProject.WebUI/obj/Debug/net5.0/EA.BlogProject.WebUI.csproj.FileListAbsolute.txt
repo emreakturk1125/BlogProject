@@ -809,11 +809,9 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutJsPartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_LayoutSideBarNavPartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\_UserLoginLayout.cshtml.g.cs
-C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\AccessDenied.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\ChangeDetails.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\Index.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\PasswordChange.cshtml.g.cs
-C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\UserLogin.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserAddPartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_UserUpdatePartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\_ViewImports.cshtml.g.cs
@@ -846,3 +844,5 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentUpdatePartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_GetDetailPartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\AccessDenied.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\Login.cshtml.g.cs

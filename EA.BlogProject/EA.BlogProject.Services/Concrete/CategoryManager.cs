@@ -188,25 +188,25 @@ namespace EA.BlogProject.Services.Concrete
                 Message = Messages.Category.NotFound(isPlural: false)
             });
         }
-
+         
         public async Task<IDataResult<CategoryDto>> UndoDeleteAsync(int categoryId, string modifiedByName)
         {
             var category = await UnitOfWork.Categories.GetAsync(c => c.Id == categoryId);
-            //if (category != null)
-            //{
-            //    category.IsDeleted = false;
-            //    category.IsActive = true;
-            //    category.ModifiedByName = modifiedByName;
-            //    category.ModifiedDate = DateTime.Now;
-            //    var deletedCategory = await UnitOfWork.Categories.UpdateAsync(category);
-            //    await UnitOfWork.SaveAsync();
-            //    return new DataResult<CategoryDto>(ResultStatus.Success, Messages.Category.UndoDelete(deletedCategory.Name), new CategoryDto
-            //    {
-            //        Category = deletedCategory,
-            //        ResultStatus = ResultStatus.Success,
-            //        Message = Messages.Category.UndoDelete(deletedCategory.Name)
-            //    });
-            //}
+            if (category != null)
+            {
+                category.IsDeleted = false;
+                category.IsActive = true;
+                category.ModifiedByName = modifiedByName;
+                category.ModifiedDate = DateTime.Now;
+                var deletedCategory = await UnitOfWork.Categories.UpdateAsync(category);
+                await UnitOfWork.SaveAsync();
+                return new DataResult<CategoryDto>(ResultStatus.Success, Messages.Category.UndoDelete(deletedCategory.Name), new CategoryDto
+                {
+                    Category = deletedCategory,
+                    ResultStatus = ResultStatus.Success,
+                    Message = Messages.Category.UndoDelete(deletedCategory.Name)
+                });
+            }
             return new DataResult<CategoryDto>(ResultStatus.Error, Messages.Category.NotFound(isPlural: false), new CategoryDto
             {
                 Category = null,
