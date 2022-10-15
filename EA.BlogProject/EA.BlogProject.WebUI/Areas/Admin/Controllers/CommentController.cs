@@ -11,13 +11,11 @@ using Microsoft.AspNetCore.Identity;
 using NToastNotify.Helpers;
 using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Entities.Dtos;
-using EA.BlogProject.WebUI.Areas.Admin.Models;
+using EA.BlogProject.Mvc.Areas.Admin.Models;
 using EA.BlogProject.Mvc.Helpers.Abstract;
 using EA.BlogProject.Services.Abstract;
 using EA.BlogProject.Shared.Utilities.Extensions;
 using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
-using EA.BlogProject.WebUI.Areas.Admin.Controllers;
-using EA.BlogProject.Mvc.Areas.Admin.Models;
 
 namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
 {
@@ -29,14 +27,14 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
         {
             _commentService = commentService;
         }
-        [Authorize(Roles = "Admin,Comment.Read")]
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var result = await _commentService.GetAllByNonDeletedAsync();
             return View(result.Data);
         }
-        [Authorize(Roles = "Admin,Comment.Read")]
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> GetAllComments()
         {
@@ -47,7 +45,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             });
             return Json(commentsResult);
         }
-        [Authorize(Roles = "Admin,Comment.Read")]
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> GetDetail(int commentId)
         {
@@ -61,7 +59,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
-        [Authorize(Roles = "Admin,Comment.Delete")]
+        [Authorize(Roles = "SuperAdmin,Comment.Delete")]
         [HttpPost]
         public async Task<IActionResult> Delete(int commentId)
         {
@@ -69,7 +67,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             var commentResult = JsonSerializer.Serialize(result);
             return Json(commentResult);
         }
-        [Authorize(Roles = "Admin,Comment.Update")]
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpPost]
         public async Task<IActionResult> Approve(int commentId)
         {
@@ -80,7 +78,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             });
             return Json(commentResult);
         }
-        [Authorize(Roles = "Admin,Comment.Update")]
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpGet]
         public async Task<IActionResult> Update(int commentId)
         {
@@ -94,7 +92,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
                 return NotFound();
             }
         }
-        [Authorize(Roles = "Admin,Comment.Update")]
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpPost]
         public async Task<IActionResult> Update(CommentUpdateDto commentUpdateDto)
         {
@@ -120,7 +118,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             });
             return Json(commentUpdateAjaxErrorModel);
         }
-        [Authorize(Roles = "Admin,Comment.Read")]
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<IActionResult> DeletedComments()
         {
@@ -128,7 +126,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             return View(result.Data);
 
         }
-        [Authorize(Roles = "Admin,Comment.Read")]
+        [Authorize(Roles = "SuperAdmin,Comment.Read")]
         [HttpGet]
         public async Task<JsonResult> GetAllDeletedComments()
         {
@@ -139,7 +137,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             });
             return Json(comments);
         }
-        [Authorize(Roles = "Admin,Comment.Update")]
+        [Authorize(Roles = "SuperAdmin,Comment.Update")]
         [HttpPost]
         public async Task<JsonResult> UndoDelete(int commentId)
         {
@@ -147,7 +145,7 @@ namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
             var undoDeleteCommentResult = JsonSerializer.Serialize(result);
             return Json(undoDeleteCommentResult);
         }
-        [Authorize(Roles = "Admin,Comment.Delete")]
+        [Authorize(Roles = "SuperAdmin,Comment.Delete")]
         [HttpPost]
         public async Task<JsonResult> HardDelete(int commentId)
         {

@@ -790,7 +790,6 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.AssemblyInfoInputs.cache
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.AssemblyInfo.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.csproj.CoreCompileInputs.cache
-C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.RazorAssemblyInfo.cache
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.RazorAssemblyInfo.cs
@@ -845,3 +844,5 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\Index.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentDetailPartial.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Comment\_CommentUpdatePartial.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\User\_GetDetailPartial.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.MvcApplicationPartsAssemblyInfo.cs

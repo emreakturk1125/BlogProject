@@ -11,12 +11,12 @@ namespace EA.BlogProject.Data.UnitOfWork
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly BlogContext _context;
+        private readonly BlogDbContext _context;
         private EfArticleRepository _efArticleRepository;
         private EfCategoryRepository  _efCategoryRepository;
         private EfCommentRepository  _efCommentRepository; 
 
-        public UnitOfWork(BlogContext context)
+        public UnitOfWork(BlogDbContext context)
         {
             _context = context;
         }

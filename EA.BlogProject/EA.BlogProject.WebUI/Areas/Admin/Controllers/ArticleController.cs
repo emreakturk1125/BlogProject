@@ -1,20 +1,23 @@
-﻿using AutoMapper;
-using EA.BlogProject.Entities.ComplexTypes;
-using EA.BlogProject.Entities.Concrete;
-using EA.BlogProject.Entities.Dtos;
-using EA.BlogProject.Mvc.Helpers.Abstract;
-using EA.BlogProject.Mvc.Helpers.Concrete;
-using EA.BlogProject.Services.Abstract;
-using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
-using EA.BlogProject.WebUI.Areas.Admin.Models;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
-using NToastNotify;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using NToastNotify;
+using EA.BlogProject.Entities.ComplexTypes;
+using EA.BlogProject.Entities.Concrete;
+using EA.BlogProject.Entities.Dtos;
+using EA.BlogProject.Mvc.Areas.Admin.Models;
+using EA.BlogProject.Mvc.Helpers.Abstract;
+using EA.BlogProject.Services.Abstract;
+using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
 
-namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
+namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
 {
     [Area("Admin")]
     public class ArticleController : BaseController
@@ -23,25 +26,26 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
         private readonly ICategoryService _categoryService;
         private readonly IToastNotification _toastNotification;
 
-        public ArticleController(IArticleService articleService, ICategoryService categoryService, UserManager<User> userManager, IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification) : base(userManager, mapper, imageHelper)
+        public ArticleController(IArticleService articleService, ICategoryService categoryService,UserManager<User> userManager ,IMapper mapper, IImageHelper imageHelper, IToastNotification toastNotification):base( userManager,mapper, imageHelper)
         {
             _articleService = articleService;
             _categoryService = categoryService;
             _toastNotification = toastNotification;
         }
-
+        [Authorize(Roles = "SuperAdmin,Article.Read")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             var result = await _articleService.GetAllByNonDeletedAsync();
-            if (result.ResultStatus == ResultStatus.Success) return View(result.Data);
+            if(result.ResultStatus==ResultStatus.Success) return View(result.Data);
             return NotFound();
         }
+        [Authorize(Roles = "SuperAdmin,Article.Create")]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
             var result = await _categoryService.GetAllByNonDeletedAndActiveAsync();
-            if (result.ResultStatus == ResultStatus.Success)
+            if (result.ResultStatus==ResultStatus.Success)
             {
                 return View(new ArticleAddViewModel
                 {
@@ -51,6 +55,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
 
             return NotFound();
         }
+        [Authorize(Roles = "SuperAdmin,Article.Create")]
         [HttpPost]
         public async Task<IActionResult> Add(ArticleAddViewModel articleAddViewModel)
         {
@@ -60,8 +65,8 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                 var imageResult = await ImageHelper.Upload(articleAddViewModel.Title,
                     articleAddViewModel.ThumbnailFile, PictureType.Post);
                 articleAddDto.Thumbnail = imageResult.Data.FullName;
-                var result = await _articleService.AddAsync(articleAddDto, LoggedInUser.UserName, LoggedInUser.Id);
-                if (result.ResultStatus == ResultStatus.Success)
+                var result = await _articleService.AddAsync(articleAddDto, LoggedInUser.UserName,LoggedInUser.Id);
+                if (result.ResultStatus==ResultStatus.Success)
                 {
                     _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
                     {
@@ -71,7 +76,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", result.Message);
+                    ModelState.AddModelError("",result.Message);
                 }
             }
 
@@ -79,12 +84,13 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             articleAddViewModel.Categories = categories.Data.Categories;
             return View(articleAddViewModel);
         }
+        [Authorize(Roles = "SuperAdmin,Article.Update")]
         [HttpGet]
         public async Task<IActionResult> Update(int articleId)
         {
             var articleResult = await _articleService.GetArticleUpdateDtoAsync(articleId);
             var categoriesResult = await _categoryService.GetAllByNonDeletedAndActiveAsync();
-            if (articleResult.ResultStatus == ResultStatus.Success && categoriesResult.ResultStatus == ResultStatus.Success)
+            if (articleResult.ResultStatus==ResultStatus.Success && categoriesResult.ResultStatus==ResultStatus.Success)
             {
                 var articleUpdateViewModel = Mapper.Map<ArticleUpdateViewModel>(articleResult.Data);
                 articleUpdateViewModel.Categories = categoriesResult.Data.Categories;
@@ -95,6 +101,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
                 return NotFound();
             }
         }
+        [Authorize(Roles = "SuperAdmin,Article.Update")]
         [HttpPost]
         public async Task<IActionResult> Update(ArticleUpdateViewModel articleUpdateViewModel)
         {
@@ -102,14 +109,14 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             {
                 bool isNewThumbnailUploaded = false;
                 var oldThumbnail = articleUpdateViewModel.Thumbnail;
-                if (articleUpdateViewModel.ThumbnailFile != null)
+                if (articleUpdateViewModel.ThumbnailFile!=null)
                 {
                     var uploadedImageResult = await ImageHelper.Upload(articleUpdateViewModel.Title,
                         articleUpdateViewModel.ThumbnailFile, PictureType.Post);
                     articleUpdateViewModel.Thumbnail = uploadedImageResult.ResultStatus == ResultStatus.Success
                         ? uploadedImageResult.Data.FullName
                         : "postImages/defaultThumbnail.jpg";
-                    if (oldThumbnail != "postImages/defaultThumbnail.jpg")
+                    if (oldThumbnail!= "postImages/defaultThumbnail.jpg")
                     {
                         isNewThumbnailUploaded = true;
                     }
@@ -138,7 +145,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             articleUpdateViewModel.Categories = categories.Data.Categories;
             return View(articleUpdateViewModel);
         }
-
+        [Authorize(Roles = "SuperAdmin,Article.Delete")]
         [HttpPost]
         public async Task<JsonResult> Delete(int articleId)
         {
@@ -146,6 +153,7 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             var articleResult = JsonSerializer.Serialize(result);
             return Json(articleResult);
         }
+        [Authorize(Roles = "SuperAdmin,Article.Read")]
         [HttpGet]
         public async Task<JsonResult> GetAllArticles()
         {
@@ -156,6 +164,40 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
             });
             return Json(articleResult);
         }
+        [Authorize(Roles = "SuperAdmin,Article.Read")]
+        [HttpGet]
+        public async Task<IActionResult> DeletedArticles()
+        {
+            var result = await _articleService.GetAllByDeletedAsync();
+            return View(result.Data);
 
+        }
+        [Authorize(Roles = "SuperAdmin,Article.Read")]
+        [HttpGet]
+        public async Task<JsonResult> GetAllDeletedArticles()
+        {
+            var result = await _articleService.GetAllByDeletedAsync();
+            var articles = JsonSerializer.Serialize(result, new JsonSerializerOptions
+            {
+                ReferenceHandler = ReferenceHandler.Preserve
+            });
+            return Json(articles);
+        }
+        [Authorize(Roles = "SuperAdmin,Article.Update")]
+        [HttpPost]
+        public async Task<JsonResult> UndoDelete(int articleId)
+        {
+            var result = await _articleService.UndoDeleteAsync(articleId, LoggedInUser.UserName);
+            var undoDeleteArticleResult = JsonSerializer.Serialize(result);
+            return Json(undoDeleteArticleResult);
+        }
+        [Authorize(Roles = "SuperAdmin,Article.Delete")]
+        [HttpPost]
+        public async Task<JsonResult> HardDelete(int articleId)
+        {
+            var result = await _articleService.HardDeleteAsync(articleId);
+            var hardDeletedArticleResult = JsonSerializer.Serialize(result);
+            return Json(hardDeletedArticleResult);
+        }
     }
 }

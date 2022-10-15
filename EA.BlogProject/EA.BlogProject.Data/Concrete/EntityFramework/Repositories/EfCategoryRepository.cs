@@ -18,13 +18,13 @@ namespace EA.BlogProject.Data.Concrete.EntityFramework.Repositories
         {
 
         }
-        private BlogContext BlogContext
+        private BlogDbContext BlogDbContext
         {
-            get { return _context as BlogContext; }
+            get { return _context as BlogDbContext; }
         }
         public async Task<Category> GetByIdAsync(int categoryId)
         {
-            return await BlogContext.Categories.SingleOrDefaultAsync(c => c.Id == categoryId);
+            return await BlogDbContext.Categories.SingleOrDefaultAsync(c => c.Id == categoryId);
         }
           
     } 

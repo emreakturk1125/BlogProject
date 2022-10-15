@@ -40,8 +40,8 @@ namespace EA.BlogProject.WebUI
             services.AddScoped<IImageHelper, ImageHelper>();
             services.ConfigureApplicationCookie(options =>
             {
-                options.LoginPath = new PathString("/Admin/User/Login");                  // Kullanıcı girişi yapmadan admin area ya gitmek isterse login sayfasına yönlecek
-                options.LogoutPath = new PathString("/Admin/User/Logout");
+                options.LoginPath = new PathString("/Admin/Auth/Login");                  // Kullanıcı girişi yapmadan admin area ya gitmek isterse login sayfasına yönlecek
+                options.LogoutPath = new PathString("/Admin/Auth/Logout");
                 options.Cookie = new CookieBuilder()
                 {
                     Name = "BlogProject",
@@ -51,7 +51,7 @@ namespace EA.BlogProject.WebUI
                 };
                 options.SlidingExpiration = true;
                 options.ExpireTimeSpan = TimeSpan.FromDays(7);  // Cookie bilgileri 7 gün geçerli olacak
-                options.AccessDeniedPath = new PathString("/Admin/User/AccessDenied");
+                options.AccessDeniedPath = new PathString("/Admin/Auth/AccessDenied");
             });
         }
 

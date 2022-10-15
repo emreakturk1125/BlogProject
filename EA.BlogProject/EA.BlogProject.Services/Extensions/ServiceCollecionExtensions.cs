@@ -17,7 +17,7 @@ namespace EA.BlogProject.Services.Extensions
     {
         public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection, string connectionString)
         {
-            serviceCollection.AddDbContext<BlogContext>(options => options.UseSqlServer(connectionString));
+            serviceCollection.AddDbContext<BlogDbContext>(options => options.UseSqlServer(connectionString));
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddScoped<ICategoryService, CategoryManager>();
             serviceCollection.AddScoped<IArticleService, ArticleManager>(); 
@@ -35,7 +35,7 @@ namespace EA.BlogProject.Services.Extensions
                 options.User.RequireUniqueEmail = true;           // Uniqe email adresi olması için
 
 
-            }).AddEntityFrameworkStores<BlogContext>();
+            }).AddEntityFrameworkStores<BlogDbContext>();
             return serviceCollection;
         }
     }

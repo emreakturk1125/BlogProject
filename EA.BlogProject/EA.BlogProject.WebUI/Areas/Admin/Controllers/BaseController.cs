@@ -1,10 +1,14 @@
-﻿using AutoMapper;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
 using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Mvc.Helpers.Abstract;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 
-namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
+namespace EA.BlogProject.Mvc.Areas.Admin.Controllers
 {
     public class BaseController : Controller
     {
@@ -12,12 +16,12 @@ namespace EA.BlogProject.WebUI.Areas.Admin.Controllers
         {
             UserManager = userManager;
             Mapper = mapper;
-            ImageHelper = imageHelper; 
+            ImageHelper = imageHelper;
         }
 
-        protected UserManager<User> UserManager { get; }    
-       protected IMapper Mapper { get; }
-       protected IImageHelper ImageHelper { get; }
+        protected UserManager<User> UserManager { get; }
+        protected IMapper Mapper { get; }
+        protected IImageHelper ImageHelper { get; }
         protected User LoggedInUser => UserManager.GetUserAsync(HttpContext.User).Result;
     }
 }

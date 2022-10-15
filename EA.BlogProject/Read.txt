@@ -11,3 +11,9 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> Trumbowyg  (jquery text editörü),
 -> Select2 (searchable dropdownlist)
 -> NToastNotify (Bildirim işlemleri için kullanılabilir)
+
+
+Migration işlemi 
+-----------------------
+-> dotnet ef --startup-project ../EA.BlogProject.WebUI migrations add InitialCreate
+-> dotnet ef --startup-project ../EA.BlogProject.WebUI database update
