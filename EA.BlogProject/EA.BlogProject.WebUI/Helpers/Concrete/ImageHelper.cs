@@ -12,6 +12,7 @@ using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
 using EA.BlogProject.Shared.Utilities.Results.Concrete;
 using EA.BlogProject.Mvc.Helpers.Abstract;
 using EA.BlogProject.Entities.ComplexTypes;
+using System.Text.RegularExpressions;
 
 namespace EA.BlogProject.Mvc.Helpers.Concrete
 {
@@ -47,6 +48,11 @@ namespace EA.BlogProject.Mvc.Helpers.Concrete
 
             /* Resimin uzantısı fileExtension adlı değişkene atanır. */
             string fileExtension = Path.GetExtension(pictureFile.FileName);
+
+
+            Regex regex = new Regex("[*'\",._&#^@]");
+            name = regex.Replace(name, String.Empty);
+
 
             DateTime dateTime = DateTime.Now;
             /*

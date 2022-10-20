@@ -19,9 +19,17 @@ namespace EA.BlogProject.WebUI.Areas.Admin.ViewComponents
             _userManager = userManager;
         }
 
-        public ViewViewComponentResult Invoke()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            var user = _userManager.GetUserAsync(HttpContext.User).Result;
+            var user = await _userManager.GetUserAsync(HttpContext.User);
+            var roles = await _userManager.GetRolesAsync(user);
+
+            if (user == null)
+                return Content("Kullanıcı bulunamadı");
+
+            if (roles == null)
+                return Content("Roller bulunamadı");
+
             return View(new UserViewModel
             {
                 User = user

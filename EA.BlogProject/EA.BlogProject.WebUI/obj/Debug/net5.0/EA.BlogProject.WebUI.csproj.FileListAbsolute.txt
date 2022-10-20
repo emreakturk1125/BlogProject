@@ -846,3 +846,7 @@ C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\EA.BlogProject.WebUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\AccessDenied.cshtml.g.cs
 C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Auth\Login.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Role\Index.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Role\_RoleAssignPartial.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Article\DeletedArticles.cshtml.g.cs
+C:\Users\aktur\Documents\GitHub\BlogProject\EA.BlogProject\EA.BlogProject.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Category\DeletedCategories.cshtml.g.cs

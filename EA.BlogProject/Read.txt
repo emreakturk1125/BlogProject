@@ -1,4 +1,6 @@
-﻿-> UnitOfWork
+﻿
+-> .Net 5.0
+-> UnitOfWork
 -> Generic Repository
 -> Asenkron Programming
 -> AutoMapper

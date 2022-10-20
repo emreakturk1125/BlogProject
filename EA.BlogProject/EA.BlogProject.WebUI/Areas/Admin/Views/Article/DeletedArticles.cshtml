@@ -1,20 +1,20 @@
 ﻿@model EA.BlogProject.Entities.Dtos.ArticleListDto
 @{
     Layout = "_Layout";
-    ViewBag.Title = "Makaleler";
+    ViewBag.Title = "Silinmiş Makaleler";
 }
 <ol class="breadcrumb mb-3 mt-2">
     <li class="breadcrumb-item"><a asp-area="Admin" asp-controller="Home" asp-action="Index">Admin</a></li>
-    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="Index">Makaleler</a></li>
+    <li class="breadcrumb-item active"><a asp-area="Admin" asp-controller="Article" asp-action="DeletedArticles">Silinmiş Makaleler</a></li>
 </ol>
 <div class="card mb-4">
     <div class="card-header">
         <i class="fas fa-table mr-1"></i>
-        Makaleler
+        Silinmiş Makaleler
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" id="articlesTable" width="100%" cellspacing="0">
+            <table class="table table-bordered" id="deletedArticlesTable" width="100%" cellspacing="0">
                 <thead>
                 <tr>
                     <th>#</th>
@@ -69,7 +69,7 @@
                         <td>@article.ModifiedDate.ToShortDateString()</td>
                         <td>@article.ModifiedByName</td>
                         <td>
-                            <a class="btn btn-primary btn-sm btn-update" data-id="@article.Id" asp-area="Admin" asp-controller="Article" asp-action="Update" asp-route-articleId="@article.Id"><span class="fas fa-edit"></span></a>
+                            <a class="btn btn-warning btn-sm btn-undo" data-id="@article.Id"><span class="fas fa-undo"></span></a>
                             <button class="btn btn-danger btn-sm btn-delete" data-id="@article.Id"><span class="fas fa-minus-circle"></span></button>
                         </td>
                     </tr>
@@ -82,14 +82,7 @@
 </div>
 @section Scripts
 {
-    <script src="~/AdminLTE/js/articleIndex.js" type="application/ecmascript"></script>
-    <script>
-        $(document).ready(function() {
-            $('#btnAdd').click(function() {
-                window.location.href = '@Url.Action("Add","Article")';
-            });
-        });
-    </script>
+    <script src="~/AdminLTE/js/deletedArticles.js" type="application/ecmascript"></script>
 }
 @section Styles
 {

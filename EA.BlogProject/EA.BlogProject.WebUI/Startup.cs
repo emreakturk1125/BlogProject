@@ -27,8 +27,11 @@ namespace EA.BlogProject.WebUI
         public IConfiguration Configuration { get; }    
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews()
-                .AddRazorRuntimeCompilation()              // AddRazorRuntimeCompilation => front tarafındaki her değişiklikte anlık yansımasını sağlamak için
+             
+            services.AddControllersWithViews(options =>
+            {
+                options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boş geçilmemelidir.");
+            }).AddRazorRuntimeCompilation()              // AddRazorRuntimeCompilation => front tarafındaki her değişiklikte anlık yansımasını sağlamak için
                 .AddJsonOptions(opt =>                     // Json işlemleri için
             {
                 opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());  // Enum dönüştürücü 
