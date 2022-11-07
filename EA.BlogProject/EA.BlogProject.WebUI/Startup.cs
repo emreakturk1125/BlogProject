@@ -1,4 +1,5 @@
-﻿using EA.BlogProject.Mvc.AutoMapper.Profiles;
+﻿using EA.BlogProject.Entities.Concrete;
+using EA.BlogProject.Mvc.AutoMapper.Profiles;
 using EA.BlogProject.Mvc.Helpers.Abstract;
 using EA.BlogProject.Mvc.Helpers.Concrete;
 using EA.BlogProject.Services.AutoMapper.Profiles;
@@ -27,7 +28,8 @@ namespace EA.BlogProject.WebUI
         public IConfiguration Configuration { get; }    
         public void ConfigureServices(IServiceCollection services)
         {
-             
+            services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));
+            services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boş geçilmemelidir.");

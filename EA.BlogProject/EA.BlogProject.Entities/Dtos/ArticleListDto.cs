@@ -11,8 +11,9 @@ namespace EA.BlogProject.Entities.Dtos
 {
     public class ArticleListDto : DtoBase
     {
-        public IList<Article> Articles { get; set; } 
-        
+        public IList<Article> Articles { get; set; }
+        public int? CategoryId { get; set; }
+
     }
 }
 

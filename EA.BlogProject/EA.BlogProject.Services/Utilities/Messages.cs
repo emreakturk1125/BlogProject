@@ -52,6 +52,10 @@ namespace EA.BlogProject.Services.Utilities
                 return $"{articleTitle} başlıklı makale başarıyla eklenmiştir.";
             }
 
+            public static string IncreaseViewCount(string articleTitle)
+            {
+                return $"{articleTitle} başlıklı makale'nin okunma sayısı başarıyla arttırılmıştır.";
+            }
             public static string Update(string articleTitle)
             {
                 return $"{articleTitle} başlıklı makale başarıyla güncellenmiştir.";

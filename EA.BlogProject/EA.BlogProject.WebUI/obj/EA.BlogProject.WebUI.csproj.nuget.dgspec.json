@@ -281,6 +281,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "LinqKit": {
+              "target": "Package",
+              "version": "[1.2.2, )"
+            },
             "Microsoft.AspNetCore.Mvc": {
               "target": "Package",
               "version": "[2.2.0, )"

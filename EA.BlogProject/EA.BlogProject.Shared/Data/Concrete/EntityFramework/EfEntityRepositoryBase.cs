@@ -1,5 +1,6 @@
 ﻿using EA.BlogProject.Shared.Data.Abstract;
 using EA.BlogProject.Shared.Entities.Abstract;
+using LinqKit;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -74,6 +75,34 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
 
             return await query.SingleOrDefaultAsync();
         }
+
+        public async Task<IList<T>> SearchAsync(IList<Expression<Func<T, bool>>> predicates, params Expression<Func<T, object>>[] includeProperties)
+        {
+            IQueryable<T> query = _context.Set<T>();
+            if (predicates.Any())
+            {
+                var predicateChain = PredicateBuilder.New<T>();   // LinqKit kütüphanesi
+                foreach (var predicate in predicates)
+                {
+                    // predicate1 && predicate2 && predicate3 && predicateN
+                    // predicate1 || predicate2 || predicate3 || predicateN
+                    predicateChain.Or(predicate);
+                }
+
+                query = query.Where(predicateChain);
+            }
+
+            if (includeProperties.Any())
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return await query.ToListAsync();
+        }
+
 
         public async Task<T> UpdateAsync(T entity)
         {

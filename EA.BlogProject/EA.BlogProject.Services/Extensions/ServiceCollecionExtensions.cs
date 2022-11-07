@@ -3,6 +3,7 @@ using EA.BlogProject.Data.UnitOfWork;
 using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Services.Abstract;
 using EA.BlogProject.Services.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -17,11 +18,7 @@ namespace EA.BlogProject.Services.Extensions
     {
         public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection, string connectionString)
         {
-            serviceCollection.AddDbContext<BlogDbContext>(options => options.UseSqlServer(connectionString));
-            serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
-            serviceCollection.AddScoped<ICategoryService, CategoryManager>();
-            serviceCollection.AddScoped<IArticleService, ArticleManager>(); 
-            serviceCollection.AddScoped<ICommentService, CommentManager>();
+            serviceCollection.AddDbContext<BlogDbContext>(options => options.UseSqlServer(connectionString)); 
             serviceCollection.AddIdentity<User,Role>(options => 
             {
                 options.Password.RequireDigit = false;            // Şifre herhangibir rakam içermek zorunda değil
@@ -36,6 +33,17 @@ namespace EA.BlogProject.Services.Extensions
 
 
             }).AddEntityFrameworkStores<BlogDbContext>();
+
+            serviceCollection.Configure<SecurityStampValidatorOptions>(options =>   // SecurityStamp önemli değerlerin değiştiğini gösterir
+            {
+                options.ValidationInterval = TimeSpan.FromSeconds(15);              // bir kullanıcıya rol atandığı zaman 15 dk içinde logout olacak ve tekrardan giriş yapılması istenecek
+            });
+            serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+            serviceCollection.AddScoped<ICategoryService, CategoryManager>();
+            serviceCollection.AddScoped<IArticleService, ArticleManager>();
+            serviceCollection.AddScoped<ICommentService, CommentManager>();
+
+
             return serviceCollection;
         }
     }
