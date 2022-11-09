@@ -5,6 +5,7 @@ using EA.BlogProject.Mvc.Helpers.Concrete;
 using EA.BlogProject.Services.AutoMapper.Profiles;
 using EA.BlogProject.Services.Extensions;
 using EA.BlogProject.WebUI.AutoMapper.Profiles;
+using EA.BlogProject.WebUI.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -33,6 +34,7 @@ namespace EA.BlogProject.WebUI
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boş geçilmemelidir.");
+                options.Filters.Add<MvcExceptionFilter>();
             }).AddRazorRuntimeCompilation()              // AddRazorRuntimeCompilation => front tarafındaki her değişiklikte anlık yansımasını sağlamak için
                 .AddJsonOptions(opt =>                     // Json işlemleri için
             {

@@ -14,8 +14,8 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> Select2 (searchable dropdownlist)
 -> NToastNotify (Bildirim işlemleri için kullanılabilir)
 -> Authorization
--> Give Authorize to Users any pages from Web Pages
--> LinqKit kütüphanesi ile Search kısımı için gereken işlemleri yaptık
+-> Give Authorize to Users any pages from Web Pages (Sayfa üzerinde kullanıcılara yetki verme)
+-> LinqKit kütüphanesi ile Ana sayfada ki Search kısımı için gereken işlemleri yaptık
 -> Bootsnipp.com dan farklı şablonlar bulabilirsin.
 
 Migration işlemi 

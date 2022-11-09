@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -75,7 +76,7 @@ namespace EA.BlogProject.Services.Concrete
         }
 
         public async Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAsync()
-        {
+        { 
             var articles = await UnitOfWork.Articles.GetAllAsync(a => !a.IsDeleted, ar => ar.User, ar => ar.Category);
             if (articles.Count > -1)
             {
@@ -126,7 +127,7 @@ namespace EA.BlogProject.Services.Concrete
         }
 
         public async Task<IDataResult<ArticleListDto>> GetAllByDeletedAsync()
-        {
+        { 
             var articles =
                 await UnitOfWork.Articles.GetAllAsync(a => a.IsDeleted, ar => ar.User,
                     ar => ar.Category);
