@@ -17,8 +17,16 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> Give Authorize to Users any pages from Web Pages (Sayfa üzerinde kullanıcılara yetki verme)
 -> LinqKit kütüphanesi ile Ana sayfada ki Search kısımı için gereken işlemleri yaptık
 -> Bootsnipp.com dan farklı şablonlar bulabilirsin.
+-> NLog kütüphanesi (https://github.com/NLog/NLog/wiki/Database-target)  => File & database log 
+
+    * log atılacak tablonun create edimesi gerekir. Dokümentasyon için "NLog and SQL Server Example Configuration" başlığı altında fakat bizim code first olduğu için "Log" class'ı tanımladık ve migration işlemi yaptık
+    * NLog, NLog.Web.AspNetCore, NLog.Database  paketlerini kurduk
+    * WebUI içine nlog adında config dosyası ekledik (https://github.com/NLog/NLog/wiki/Getting-started-with-ASP.NET-Core-5)
+    * File & database, her iki log işlemi de olsun diye nlog.config de düzenleme yaptık
+    * Program.cs de dğer loggerları disabled etmemiz gerekiyor, nlog u kullanabilmek için 
 
 Migration işlemi 
 -----------------------
+-> EA.BlogProject.Data  klasörünü cmd de açtıktan sonra
 -> dotnet ef --startup-project ../EA.BlogProject.WebUI migrations add InitialCreate
 -> dotnet ef --startup-project ../EA.BlogProject.WebUI database update

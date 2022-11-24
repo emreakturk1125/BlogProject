@@ -30,16 +30,22 @@ namespace EA.BlogProject.Mvc.Controllers
         }
         [HttpGet]
         public IActionResult About()
-        {
+        { 
             return View(_aboutUsPageInfo);
         }
         [HttpGet]
         public IActionResult Contact()
-        {
+        { 
             return View();
         }
         [HttpPost]
         public IActionResult Contact(EmailSendDto emailSendDto)
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult PageNotFound()
         {
             return View();
         }
