@@ -18,6 +18,7 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> LinqKit kütüphanesi ile Ana sayfada ki Search kısımı için gereken işlemleri yaptık
 -> Bootsnipp.com dan farklı şablonlar bulabilirsin.
 -> NLog kütüphanesi (https://github.com/NLog/NLog/wiki/Database-target)  => File & database log 
+-> Mail işlemleri için outlook smtp
 
     * log atılacak tablonun create edimesi gerekir. Dokümentasyon için "NLog and SQL Server Example Configuration" başlığı altında fakat bizim code first olduğu için "Log" class'ı tanımladık ve migration işlemi yaptık
     * NLog, NLog.Web.AspNetCore, NLog.Database  paketlerini kurduk
