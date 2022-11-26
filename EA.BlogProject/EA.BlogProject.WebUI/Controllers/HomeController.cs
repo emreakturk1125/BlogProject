@@ -7,19 +7,25 @@ using Microsoft.Extensions.Options;
 using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Entities.Dtos;
 using EA.BlogProject.Services.Abstract;
+using NToastNotify;
 
 namespace EA.BlogProject.Mvc.Controllers
 {
     public class HomeController : Controller
     {
         private readonly IArticleService _articleService;
-        private readonly AboutUsPageInfo _aboutUsPageInfo;
+        private readonly AboutUsPageInfo _aboutUsPageInfo; 
+        private readonly IMailService _mailService;
+        private readonly IToastNotification _toastNotification;
 
-        public HomeController(IArticleService articleService,IOptions<AboutUsPageInfo> aboutUsPageInfo)
+        public HomeController(IArticleService articleService, IOptions<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification)
         {
             _articleService = articleService;
             _aboutUsPageInfo = aboutUsPageInfo.Value;
+            _mailService = mailService;
+            _toastNotification = toastNotification;
         }
+
         [HttpGet]
         public async Task<IActionResult> Index(int? categoryId,int currentPage=1,int pageSize=5, bool isAscending = false)
         {
@@ -41,7 +47,17 @@ namespace EA.BlogProject.Mvc.Controllers
         [HttpPost]
         public IActionResult Contact(EmailSendDto emailSendDto)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+                var result = _mailService.SendContactEmail(emailSendDto);
+                _toastNotification.AddSuccessToastMessage(result.Message, new ToastrOptions
+                {
+                    Title = "Başarılı İşlem!"
+                });
+                return View();
+
+            }
+            return View(emailSendDto);
         }
 
         [HttpGet]
