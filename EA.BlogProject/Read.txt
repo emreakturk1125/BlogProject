@@ -20,6 +20,11 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> NLog kütüphanesi (https://github.com/NLog/NLog/wiki/Database-target)  => File & database log 
 -> Mail işlemleri için outlook smtp
 
+Appsetting.congig ile ilgili işlemler
+--------------------------------------------------
+-> Appsettings.json dosyasından farklı yolla veri okuma
+-> WritetibleOptions adlı helper sınıfı  appsettings.json üzerine veri yazmayı sağlar
+
     * log atılacak tablonun create edimesi gerekir. Dokümentasyon için "NLog and SQL Server Example Configuration" başlığı altında fakat bizim code first olduğu için "Log" class'ı tanımladık ve migration işlemi yaptık
     * NLog, NLog.Web.AspNetCore, NLog.Database  paketlerini kurduk
     * WebUI içine nlog adında config dosyası ekledik (https://github.com/NLog/NLog/wiki/Getting-started-with-ASP.NET-Core-5)
