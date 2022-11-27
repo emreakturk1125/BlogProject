@@ -17,13 +17,8 @@ yani shared katmmanın başka projelere ekle ve kullan diye
 -> Give Authorize to Users any pages from Web Pages (Sayfa üzerinde kullanıcılara yetki verme)
 -> LinqKit kütüphanesi ile Ana sayfada ki Search kısımı için gereken işlemleri yaptık
 -> Bootsnipp.com dan farklı şablonlar bulabilirsin.
+-> Mail işlemleri için outlook smtp 
 -> NLog kütüphanesi (https://github.com/NLog/NLog/wiki/Database-target)  => File & database log 
--> Mail işlemleri için outlook smtp
-
-Appsetting.congig ile ilgili işlemler
---------------------------------------------------
--> Appsettings.json dosyasından farklı yolla veri okuma
--> WritetibleOptions adlı helper sınıfı  appsettings.json üzerine veri yazmayı sağlar
 
     * log atılacak tablonun create edimesi gerekir. Dokümentasyon için "NLog and SQL Server Example Configuration" başlığı altında fakat bizim code first olduğu için "Log" class'ı tanımladık ve migration işlemi yaptık
     * NLog, NLog.Web.AspNetCore, NLog.Database  paketlerini kurduk
@@ -31,6 +26,13 @@ Appsetting.congig ile ilgili işlemler
     * File & database, her iki log işlemi de olsun diye nlog.config de düzenleme yaptık
     * Program.cs de dğer loggerları disabled etmemiz gerekiyor, nlog u kullanabilmek için 
 
+
+-> Appsetting.config ile ilgili işlemler  (hem okuma hem de üzerine yazma işlemleri)
+
+    * Appsettings.json dosyasından farklı yolla veri okuma işlemi yapıldı
+    * WritetibleOptions adlı helper sınıfı  appsettings.json üzerine veri yazmayı sağlar  => ( EA.BlogProject.Shared içinde )
+    * WritetibleOptions için "Microsoft.Extensions.Options.ConfigurationExtensions" kütüphanesinin de kurulması gerekir 
+     
 Migration işlemi 
 -----------------------
 -> EA.BlogProject.Data  klasörünü cmd de açtıktan sonra

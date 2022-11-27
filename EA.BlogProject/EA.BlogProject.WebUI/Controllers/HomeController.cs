@@ -8,6 +8,7 @@ using EA.BlogProject.Entities.Concrete;
 using EA.BlogProject.Entities.Dtos;
 using EA.BlogProject.Services.Abstract;
 using NToastNotify;
+using EA.BlogProject.Shared.Utilities.Helpers.Abstract;
 
 namespace EA.BlogProject.Mvc.Controllers
 {
@@ -17,13 +18,15 @@ namespace EA.BlogProject.Mvc.Controllers
         private readonly AboutUsPageInfo _aboutUsPageInfo; 
         private readonly IMailService _mailService;
         private readonly IToastNotification _toastNotification;
+        private readonly IWritableOptions<AboutUsPageInfo> _aboutUsPageInfoWriter;
 
-        public HomeController(IArticleService articleService, IOptions<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification)
+        public HomeController(IArticleService articleService, IOptions<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter)
         {
             _articleService = articleService;
-            _aboutUsPageInfo = aboutUsPageInfo.Value;
             _mailService = mailService;
             _toastNotification = toastNotification;
+            _aboutUsPageInfoWriter = aboutUsPageInfoWriter; 
+            _aboutUsPageInfo = aboutUsPageInfo.Value;
         }
 
         [HttpGet]
@@ -36,7 +39,12 @@ namespace EA.BlogProject.Mvc.Controllers
         }
         [HttpGet]
         public IActionResult About()
-        { 
+        {
+            _aboutUsPageInfoWriter.Update(x =>
+            {
+                x.Header = "Test Başlık";
+                x.Content = "Test İçerik";
+            });
             return View(_aboutUsPageInfo);
         }
         [HttpGet]

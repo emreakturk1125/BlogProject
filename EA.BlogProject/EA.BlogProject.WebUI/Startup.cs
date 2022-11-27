@@ -4,6 +4,7 @@ using EA.BlogProject.Mvc.Helpers.Abstract;
 using EA.BlogProject.Mvc.Helpers.Concrete;
 using EA.BlogProject.Services.AutoMapper.Profiles;
 using EA.BlogProject.Services.Extensions;
+using EA.BlogProject.Shared.Utilities.Extensions;
 using EA.BlogProject.WebUI.AutoMapper.Profiles;
 using EA.BlogProject.WebUI.Filters;
 using Microsoft.AspNetCore.Builder;
@@ -29,9 +30,11 @@ namespace EA.BlogProject.WebUI
         public IConfiguration Configuration { get; }    
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));
+            services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));          //burada config'den veri okuma
             services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.ConfigureWritable<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));  //burada ise config'e veri yazma
+
             services.AddControllersWithViews(options =>
             {
                 options.ModelBindingMessageProvider.SetValueMustNotBeNullAccessor(value => "Bu alan boş geçilmemelidir.");
