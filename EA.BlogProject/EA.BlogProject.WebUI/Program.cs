@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using NLog.Web;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,7 +25,7 @@ namespace EA.BlogProject.WebUI
                 var env = hostingContext.HostingEnvironment;
                 config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
-                config.AddEnvironmentVariables();
+                config.AddEnvironmentVariables(); 
                 if (args != null)
                 {
                     config.AddCommandLine(args);

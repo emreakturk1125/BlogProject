@@ -20,7 +20,7 @@ namespace EA.BlogProject.Mvc.Controllers
         private readonly IToastNotification _toastNotification;
         private readonly IWritableOptions<AboutUsPageInfo> _aboutUsPageInfoWriter;
 
-        public HomeController(IArticleService articleService, IOptions<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter)
+        public HomeController(IArticleService articleService, IOptionsSnapshot<AboutUsPageInfo> aboutUsPageInfo, IMailService mailService, IToastNotification toastNotification, IWritableOptions<AboutUsPageInfo> aboutUsPageInfoWriter)
         {
             _articleService = articleService;
             _mailService = mailService;
@@ -39,12 +39,7 @@ namespace EA.BlogProject.Mvc.Controllers
         }
         [HttpGet]
         public IActionResult About()
-        {
-            _aboutUsPageInfoWriter.Update(x =>
-            {
-                x.Header = "Test Başlık";
-                x.Content = "Test İçerik";
-            });
+        { 
             return View(_aboutUsPageInfo);
         }
         [HttpGet]

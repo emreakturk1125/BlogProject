@@ -33,7 +33,12 @@ namespace EA.BlogProject.WebUI
             services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));          //burada config'den veri okuma
             services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.Configure<ArticleRightSideBarWidgetOptions>(Configuration.GetSection("ArticleRightSideBarWidgetOptions"));
+
             services.ConfigureWritable<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));  //burada ise config'e veri yazma
+            services.ConfigureWritable<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
+            services.ConfigureWritable<SmtpSettings>(Configuration.GetSection("SmtpSettings"));
+            services.ConfigureWritable<ArticleRightSideBarWidgetOptions>(Configuration.GetSection("ArticleRightSideBarWidgetOptions"));
 
             services.AddControllersWithViews(options =>
             {
@@ -85,18 +90,12 @@ namespace EA.BlogProject.WebUI
                 }
             });
 
-            app.UseSession();
-
-            app.UseStaticFiles();
-
-            app.UseRouting();
-
-            app.UseAuthentication();
-
-            app.UseAuthorization();
-
-            app.UseNToastNotify();
-
+            app.UseSession(); 
+            app.UseStaticFiles(); 
+            app.UseRouting(); 
+            app.UseAuthentication(); 
+            app.UseAuthorization(); 
+            app.UseNToastNotify(); 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapAreaControllerRoute(
