@@ -7,16 +7,20 @@ using EA.BlogProject.Services.Abstract;
 using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
 using EA.BlogProject.WebUI.Models;
 using EA.BlogProject.Entities.ComplexTypes;
+using EA.BlogProject.Entities.Concrete;
+using Microsoft.Extensions.Options;
 
 namespace EA.BlogProject.Mvc.Controllers
 {
     public class ArticleController : Controller
     {
         private readonly IArticleService _articleService;
+        private readonly ArticleRightSideBarWidgetOptions _articleRightSideBarWidgetOptions;
 
-        public ArticleController(IArticleService articleService)
+        public ArticleController(IArticleService articleService, IOptionsSnapshot<ArticleRightSideBarWidgetOptions> articleRightSideBarWidgetOptions)
         {
             _articleService = articleService;
+            _articleRightSideBarWidgetOptions = articleRightSideBarWidgetOptions.Value;
         }
         [HttpGet]
         public async Task<IActionResult> Search(string keyword, int currentPage = 1, int pageSize = 5, bool isAscending = false)
@@ -37,8 +41,8 @@ namespace EA.BlogProject.Mvc.Controllers
             if (articleResult.ResultStatus == ResultStatus.Success)
             {
                 var userArticles = await _articleService.GetAllByUserIdOnFilter(articleResult.Data.Article.UserId,
-                    FilterBy.Category, OrderBy.Date, false, 10, articleResult.Data.Article.CategoryId, DateTime.Now,
-                    DateTime.Now, 0, 99999, 0, 99999);
+                    _articleRightSideBarWidgetOptions.FilterBy, _articleRightSideBarWidgetOptions.OrderBy, _articleRightSideBarWidgetOptions.IsAscending, _articleRightSideBarWidgetOptions.TakeSize, _articleRightSideBarWidgetOptions.CategoryId, _articleRightSideBarWidgetOptions.StartAt,
+                    _articleRightSideBarWidgetOptions.EndAt, _articleRightSideBarWidgetOptions.MinViewCount, _articleRightSideBarWidgetOptions.MaxViewCount, _articleRightSideBarWidgetOptions.MinCommentCount, _articleRightSideBarWidgetOptions.MaxCommentCount);
                 await _articleService.IncreaseViewCountAsync(articleId);
                 return View(new ArticleDetailViewModel
                 {
@@ -46,7 +50,7 @@ namespace EA.BlogProject.Mvc.Controllers
                     ArticleDetailRightSideBarViewModel = new ArticleDetailRightSideBarViewModel
                     {
                         ArticleListDto = userArticles.Data,
-                        Header = "Kullanıcının Aynı Kategori Üzerindeki En Çok Okunan Makaleleri",
+                        Header = _articleRightSideBarWidgetOptions.Header,
                         User = articleResult.Data.Article.User
                     }
                 });
