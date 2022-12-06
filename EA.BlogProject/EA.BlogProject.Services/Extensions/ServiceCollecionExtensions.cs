@@ -18,7 +18,7 @@ namespace EA.BlogProject.Services.Extensions
     {
         public static IServiceCollection LoadMyServices(this IServiceCollection serviceCollection, string connectionString)
         {
-            serviceCollection.AddDbContext<BlogDbContext>(options => options.UseSqlServer(connectionString)); 
+            serviceCollection.AddDbContext<BlogDbContext>(options => options.UseSqlServer(connectionString).UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)); 
             serviceCollection.AddIdentity<User,Role>(options => 
             {
                 options.Password.RequireDigit = false;            // Şifre herhangibir rakam içermek zorunda değil

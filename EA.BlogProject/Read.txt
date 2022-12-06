@@ -32,6 +32,22 @@ yani shared katmmanın başka projelere ekle ve kullan diye
     * Appsettings.json dosyasından farklı yolla veri okuma işlemi yapıldı
     * WritetibleOptions adlı helper sınıfı  appsettings.json üzerine veri yazmayı sağlar  => ( EA.BlogProject.Shared içinde )
     * WritetibleOptions için "Microsoft.Extensions.Options.ConfigurationExtensions" kütüphanesinin de kurulması gerekir 
+
+-> AsNoTracking işlemi => EfEntityRepositoryBase içindeki sorgularda kullanıldı. 
+   
+    * Sadece çekilen tabloyu getir ya da include edilen tablo varsa onunla birlikte getir demektir.
+    * Birbirini referans eden kayıtların tekrar etmesini engelledik, büyük bir performans kazancı oluoyoruz.
+    * AsNoTracking işlemi 1. farklı bir yöntem olarak alttaki şekilde de yapılabilir, yani  sorguların sonuna AsNoTracking() koymak yerine constructor da alttaki gibi kod eklenebilir. 
+    *  Bu sorgulara otomatik AsNoTracking ekler. 
+    // _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
+    * AsNoTracking işlemi 2. farklı bir yöntem olarak; Startup da tanımlanan DbContext sin sonuna alttaki kod parççaığı eklenebilir 
+    // .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+
+-> FirstOrDefault() ile SingleOrDefault() farkı nedir?
+   
+   * SingleOrDefault; Yeni bir sorgu üretir.
+   * FirstOrDefault; EntityFramework de cache mekanizması var, eğer cache de varsa ordan yüklüyor datayı.
+    
      
 Migration işlemi 
 -----------------------

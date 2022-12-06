@@ -18,6 +18,11 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
         public EfEntityRepositoryBase(DbContext context)
         {
             _context = context;
+
+            //  AsNoTracking işlemi farklı bir yöntem olarak bu şekilde de yapılabilir, yani  sorguların sonuna AsNoTracking() koymak yerine constructor da alttaki gibi kod eklenebilir. 
+            //  Bu sorgulara otomatik ekler. 
+            // _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
+
             _dbSet = context.Set<T>();
         }
 
@@ -57,7 +62,7 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.ToListAsync();
+            return await query.AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
@@ -73,7 +78,7 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.SingleOrDefaultAsync();
+            return await query.AsNoTracking().SingleOrDefaultAsync();
         }
 
         public async Task<IList<T>> SearchAsync(IList<Expression<Func<T, bool>>> predicates, params Expression<Func<T, object>>[] includeProperties)
@@ -100,7 +105,7 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
                 }
             }
 
-            return await query.ToListAsync();
+            return await query.AsNoTracking().ToListAsync();
         }
 
 
