@@ -1,4 +1,5 @@
-﻿using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
+﻿using EA.BlogProject.Shared.Entities.Concrete;
+using EA.BlogProject.Shared.Utilities.Results.ComplexTypes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,6 @@ namespace EA.BlogProject.Shared.Utilities.Results.Abstract
         public ResultStatus ResultStatus { get; }
         public string Message { get; }     
         public Exception Exception { get;}
-
-
+        public IEnumerable<ValidationError> ValidationErrors { get; set; }
     }
 }
