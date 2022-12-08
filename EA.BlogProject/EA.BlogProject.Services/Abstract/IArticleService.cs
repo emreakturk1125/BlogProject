@@ -13,18 +13,17 @@ namespace EA.BlogProject.Services.Abstract
     public interface IArticleService
     {
         Task<IDataResult<ArticleDto>> GetAsync(int articleId);
+        Task<IDataResult<ArticleDto>> GetByIdAsync(int articleId, bool includeCategory, bool includeComments, bool includeUser);
         Task<IDataResult<ArticleUpdateDto>> GetArticleUpdateDtoAsync(int articleId);
+        Task<IDataResult<ArticleListDto>> GetAllAsyncV2(int? categoryId, int? userId, bool? isActive, bool? isDeleted, int currentPage, int pageSize, OrderByGeneral orderBy, bool isAscending, bool includeCategory, bool includeComments, bool includeUser);
         Task<IDataResult<ArticleListDto>> GetAllAsync();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAsync();
         Task<IDataResult<ArticleListDto>> GetAllByNonDeletedAndActiveAsync();
         Task<IDataResult<ArticleListDto>> GetAllByCategoryAsync(int categoryId);
-
         Task<IDataResult<ArticleListDto>> GetAllByDeletedAsync();
-        Task<IDataResult<ArticleListDto>> GetAllByViewCountAsync(bool isAscending,int? takeSize);
-
+        Task<IDataResult<ArticleListDto>> GetAllByViewCountAsync(bool isAscending, int? takeSize);
         Task<IDataResult<ArticleListDto>> GetAllByPagingAsync(int? categoryId, int currentPage = 1, int pageSize = 5,
-           bool isAscending = false);
-
+            bool isAscending = false);
         Task<IDataResult<ArticleListDto>> GetAllByUserIdOnFilter(int userId, FilterBy filterBy, OrderBy orderBy,
             bool isAscending, int takeSize, int categoryId, DateTime startAt, DateTime endAt, int minViewCount,
             int maxViewCount, int minCommentCount, int maxCommentCount);

@@ -11,50 +11,28 @@ using System.Threading.Tasks;
 
 namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
 {
-    public class EfEntityRepositoryBase<T> : IEntityRepository<T> where T : class, IEntity, new()
+    public class EfEntityRepositoryBase<TEntity> : IEntityRepository<TEntity> where TEntity : class, IEntity, new()
     {
         protected readonly DbContext _context;
-        private readonly DbSet<T> _dbSet;
+
         public EfEntityRepositoryBase(DbContext context)
         {
             _context = context;
-
-            //  AsNoTracking işlemi farklı bir yöntem olarak bu şekilde de yapılabilir, yani  sorguların sonuna AsNoTracking() koymak yerine constructor da alttaki gibi kod eklenebilir. 
-            //  Bu sorgulara otomatik ekler. 
-            // _context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking; 
-
-            _dbSet = context.Set<T>();
+            //_context.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
-        public async Task<T> AddAsync(T entity)
+        public async Task<IList<TEntity>> GetAllAsyncV2(IList<Expression<Func<TEntity, bool>>> predicates, IList<Expression<Func<TEntity, object>>> includeProperties)
         {
-            await _dbSet.AddAsync(entity);
-            return entity;
-        }
-
-        public async Task<bool> AnyAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.AnyAsync(predicate);
-        }
-
-        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate = null)
-        {
-            return await (predicate == null ? _dbSet.CountAsync() : _dbSet.CountAsync(predicate));
-        }
-
-        public async Task DeleteAsync(T entity)
-        {
-            await Task.Run(() => { _dbSet.Remove(entity); });
-        }
-
-        public async Task<IList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, params Expression<Func<T, object>>[] includeProperties)
-        {
-            IQueryable<T> query = _dbSet;
-            if (predicate != null)
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            if (predicates != null && predicates.Any())
             {
-                query = query.Where(predicate);
+                foreach (var predicate in predicates)
+                {
+                    query = query.Where(predicate); // isActive==false && isDeleted==true
+                }
             }
-            if (includeProperties.Any())
+
+            if (includeProperties != null && includeProperties.Any())
             {
                 foreach (var includeProperty in includeProperties)
                 {
@@ -65,28 +43,18 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
             return await query.AsNoTracking().ToListAsync();
         }
 
-        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<TEntity> AddAsync(TEntity entity)
         {
-            IQueryable<T> query = _dbSet;
-             query = query.Where(predicate);
-           
-            if (includeProperties.Any())
-            {
-                foreach (var includeProperty in includeProperties)
-                {
-                    query = query.Include(includeProperty);
-                }
-            }
-
-            return await query.AsNoTracking().SingleOrDefaultAsync();
+            await _context.Set<TEntity>().AddAsync(entity);
+            return entity;
         }
 
-        public async Task<IList<T>> SearchAsync(IList<Expression<Func<T, bool>>> predicates, params Expression<Func<T, object>>[] includeProperties)
+        public async Task<IList<TEntity>> SearchAsync(IList<Expression<Func<TEntity, bool>>> predicates, params Expression<Func<TEntity, object>>[] includeProperties)
         {
-            IQueryable<T> query = _context.Set<T>();
+            IQueryable<TEntity> query = _context.Set<TEntity>();
             if (predicates.Any())
             {
-                var predicateChain = PredicateBuilder.New<T>();   // LinqKit kütüphanesi
+                var predicateChain = PredicateBuilder.New<TEntity>();
                 foreach (var predicate in predicates)
                 {
                     // predicate1 && predicate2 && predicate3 && predicateN
@@ -108,10 +76,86 @@ namespace EA.BlogProject.Shared.Data.Concrete.EntityFramework
             return await query.AsNoTracking().ToListAsync();
         }
 
-
-        public async Task<T> UpdateAsync(T entity)
+        public async Task<bool> AnyAsync(Expression<Func<TEntity, bool>> predicate)
         {
-            await Task.Run(() => { _dbSet.Update(entity); });
+            return await _context.Set<TEntity>().AnyAsync(predicate);
+        }
+
+        public async Task<int> CountAsync(Expression<Func<TEntity, bool>> predicate = null)
+        {
+            return await (predicate == null ? _context.Set<TEntity>().CountAsync() : _context.Set<TEntity>().CountAsync(predicate));
+        }
+
+        public IQueryable<TEntity> GetAsQueryable()
+        {
+            return _context.Set<TEntity>().AsQueryable();
+        }
+
+        public async Task DeleteAsync(TEntity entity)
+        {
+            await Task.Run(() => { _context.Set<TEntity>().Remove(entity); });
+        }
+
+        public async Task<TEntity> GetAsyncV2(IList<Expression<Func<TEntity, bool>>> predicates, IList<Expression<Func<TEntity, object>>> includeProperties)
+        {
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            if (predicates != null && predicates.Any())
+            {
+                foreach (var predicate in predicates)
+                {
+                    query = query.Where(predicate); // isActive==false && isDeleted==true
+                }
+            }
+
+            if (includeProperties != null && includeProperties.Any())
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return await query.AsNoTracking().SingleOrDefaultAsync();
+        }
+
+        public async Task<IList<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate = null, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            if (predicate != null)
+            {
+                query = query.Where(predicate);
+            }
+
+            if (includeProperties.Any())
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return await query.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includeProperties)
+        {
+            IQueryable<TEntity> query = _context.Set<TEntity>();
+            query = query.Where(predicate);
+
+            if (includeProperties.Any())
+            {
+                foreach (var includeProperty in includeProperties)
+                {
+                    query = query.Include(includeProperty);
+                }
+            }
+
+            return await query.AsNoTracking().SingleOrDefaultAsync();
+        }
+
+        public async Task<TEntity> UpdateAsync(TEntity entity)
+        {
+            await Task.Run(() => { _context.Set<TEntity>().Update(entity); });
             return entity;
         }
     }
