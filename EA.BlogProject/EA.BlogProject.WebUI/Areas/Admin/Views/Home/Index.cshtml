@@ -1,4 +1,5 @@
 ﻿@model EA.BlogProject.WebUI.Areas.Admin.Models.DashboardViewModel
+ 
 @{
     Layout = "_Layout";
     ViewBag.Title = "Yönetim Paneli";
@@ -47,16 +48,16 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-xl-6">
+    <div class="col-xl-12">
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-chart-area mr-1"></i>
-                Area Chart Örneği
+                En Çok Okunan Makaleler Grafiği
             </div>
-            <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+            <div class="card-body"><canvas id="viewCountChart" width="100%" height="30"></canvas></div>
         </div>
     </div>
-    <div class="col-xl-6">
+    @*<div class="col-xl-6">
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-chart-bar mr-1"></i>
@@ -64,7 +65,7 @@
             </div>
             <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
         </div>
-    </div>
+    </div>*@
 </div>
 <div class="card mb-4">
     <div class="card-header">
@@ -75,53 +76,54 @@
         <div class="table-responsive">
             <table class="table table-bordered" id="articlesTable" width="100%" cellspacing="0">
                 <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Kategori</th>
-                        <th>Başlık</th>
-                        <th>Küçük Resim</th>
-                        <th>Tarih</th>
-                        <th>Okunma Sayısı</th>
-                        <th>Yorum Sayısı</th>
-                        <th>Aktif Mi?</th>
-                        <th>Silinmiş Mi?</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Kategori</th>
+                    <th>Başlık</th>
+                    <th>Küçük Resim</th>
+                    <th>Tarih</th>
+                    <th>Okunma Sayısı</th>
+                    <th>Yorum Sayısı</th>
+                    <th>Aktif Mi?</th>
+                    <th>Silinmiş Mi?</th>
+                </tr>
                 </thead>
                 <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Kategori</th>
-                        <th>Başlık</th>
-                        <th>Küçük Resim</th>
-                        <th>Tarih</th>
-                        <th>Okunma Sayısı</th>
-                        <th>Yorum Sayısı</th>
-                        <th>Aktif Mi?</th>
-                        <th>Silinmiş Mi?</th>
-                    </tr>
+                <tr>
+                    <th>#</th>
+                    <th>Kategori</th>
+                    <th>Başlık</th>
+                    <th>Küçük Resim</th>
+                    <th>Tarih</th>
+                    <th>Okunma Sayısı</th>
+                    <th>Yorum Sayısı</th>
+                    <th>Aktif Mi?</th>
+                    <th>Silinmiş Mi?</th>
+                </tr>
                 </tfoot>
                 <tbody>
-                    @foreach (var article in Model.Articles.Articles)
-                    {
-                        <tr>
-                            <td>@article.Id</td>
-                            <td>@article.Category.Name</td>
-                            <td>@article.Title</td>
-                            <td><img src="~/img/@article.Thumbnail" class="my-image-table" /></td>
-                            <td>@article.Date.ToShortDateString()</td>
-                            <td>@article.ViewsCount</td>
-                            <td>@article.CommentCount</td>
-                            <td>@(article.IsActive ? "Evet" : "Hayır")</td>
-                            <td>@(article.IsDeleted ? "Evet" : "Hayır")</td>
-                        </tr>
-                    }
-
+                @foreach (var article in Model.Articles.Articles)
+                {
+                    <tr>
+                        <td>@article.Id</td>
+                        <td>@article.Category.Name</td>
+                        <td>@article.Title</td>
+                        <td><img src="~/img/@article.Thumbnail" class="my-image-table" /></td>
+                        <td>@article.Date.ToShortDateString()</td>
+                        <td>@article.ViewsCount</td>
+                        <td>@article.CommentCount</td>
+                        <td>@(article.IsActive ? "Evet" : "Hayır")</td>
+                        <td>@(article.IsDeleted ? "Evet" : "Hayır")</td>
+                    </tr>
+                }
+                    
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+
 @section Scripts
     { 
-    <script src="~/js/homeindex.js" type="application/ecmascript"></script>
+    <script src="~/AdminLTE/js/homeIndex.js" type="application/ecmascript"></script>
 }

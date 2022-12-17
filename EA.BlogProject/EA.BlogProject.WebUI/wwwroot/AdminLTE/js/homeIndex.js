@@ -1,4 +1,6 @@
 ﻿$(document).ready(function () {
+
+    // Datatable
     $('#articlesTable').DataTable({
         "order": [[4, "desc"]],
         language: {
@@ -34,4 +36,53 @@
         },
         "order":[[4,"desc"]]
     });
+    // Datatable
+
+    // Chart.js
+
+    $.get('/Admin/Article/GetAllByViewCount/?isAscending=false&takeSize=10',
+        function (data) {
+            debugger;
+            const articleResult = jQuery.parseJSON(data);
+
+            let viewCountContext = $('#viewCountChart');
+
+            let viewCountChart = new Chart(viewCountContext,
+                {
+                    type: 'bar',
+                    data: {
+                        labels: articleResult.$values.map(article => article.Title),
+                        datasets: [
+                            {
+                                label: 'Okunma Sayısı',
+                                data: articleResult.$values.map(article => article.ViewsCount),
+                                backgroundColor: '#fb3640',
+                                hoverBorderWidth: 4,
+                                hoverBorderColor: 'black'
+                            },
+                            {
+                                label: 'Yorum Sayısı',
+                                data: articleResult.$values.map(article => article.CommentCount),
+                                backgroundColor: '#fdca40',
+                                hoverBorderWidth: 4,
+                                hoverBorderColor: 'black'
+                            }]
+                    },
+                    options: {
+                        plugins: {
+                            legend: {
+                                labels: {
+                                    font: {
+                                        size: 18
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+        });
+
 });
+
+    // Chart.js
+ 
