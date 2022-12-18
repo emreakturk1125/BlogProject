@@ -21,11 +21,12 @@ namespace EA.BlogProject.Data.UnitOfWork
             _context = context;
         }
 
-        public IArticleRepository Articles => _efArticleRepository ?? new EfArticleRepository(_context);
+        // ??=  =>  _efArticleRepository  boş ise yeni bir instance oluştur ve onu _efArticleRepository'a ata demektir.
+        public IArticleRepository Articles => _efArticleRepository ??= new EfArticleRepository(_context);
 
-        public ICategoryRepository Categories => _efCategoryRepository ?? new EfCategoryRepository(_context);   
+        public ICategoryRepository Categories => _efCategoryRepository ??= new EfCategoryRepository(_context);   
 
-        public ICommentRepository Comments => _efCommentRepository ?? new EfCommentRepository(_context);    
+        public ICommentRepository Comments => _efCommentRepository ??= new EfCommentRepository(_context);    
             
         public async Task<int> SaveAsync()
         {

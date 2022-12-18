@@ -30,6 +30,7 @@ namespace EA.BlogProject.WebUI
         public IConfiguration Configuration { get; }    
         public void ConfigureServices(IServiceCollection services)
         {
+
             services.Configure<AboutUsPageInfo>(Configuration.GetSection("AboutUsPageInfo"));          //burada config'den veri okuma
             services.Configure<WebsiteInfo>(Configuration.GetSection("WebsiteInfo"));
             services.Configure<SmtpSettings>(Configuration.GetSection("SmtpSettings"));

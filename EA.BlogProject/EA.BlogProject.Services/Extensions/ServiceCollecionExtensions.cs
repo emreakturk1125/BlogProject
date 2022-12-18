@@ -41,7 +41,7 @@ namespace EA.BlogProject.Services.Extensions
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
             serviceCollection.AddScoped<ICategoryService, CategoryManager>();
             serviceCollection.AddScoped<IArticleService, ArticleManager>();
-            serviceCollection.AddScoped<ICommentService, CommentManager>();       // AddScoped    => Her istek için yeni bir manager instance üretilir
+            serviceCollection.AddScoped<ICommentService, CommentManager>();       // AddScoped    => Her istek için yeni bir manager instance üretilir. Fakat her yanı istekte aynı instance kullanılır
             serviceCollection.AddSingleton<IMailService, MailManager>();          // AddSingleton => Her bir istek için yeni bir manager sınıfına ihtiyacımız yok
 
             return serviceCollection;
