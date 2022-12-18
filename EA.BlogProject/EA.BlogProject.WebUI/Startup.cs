@@ -85,7 +85,7 @@ namespace EA.BlogProject.WebUI
                 await next();
                 if (context.Response.StatusCode == 404)
                 {
-                    context.Request.Path = "/Home/PageNotFound";
+                    context.Request.Path = "/sayfabulunamadi";
                     await next();   
                 }
             });
@@ -102,6 +102,11 @@ namespace EA.BlogProject.WebUI
                     name: "Admin",
                     areaName: "Admin",
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
+                    );
+                endpoints.MapControllerRoute(
+                    name : "article",
+                    pattern : "{title}/{articleId}",
+                    defaults: new { controller = "Article", action = "Detail",}
                     );
                 endpoints.MapDefaultControllerRoute();
             });

@@ -12,6 +12,7 @@ using EA.BlogProject.Shared.Utilities.Helpers.Abstract;
 
 namespace EA.BlogProject.Mvc.Controllers
 {
+    [Route("/")]
     public class HomeController : Controller
     {
         private readonly IArticleService _articleService;
@@ -29,6 +30,9 @@ namespace EA.BlogProject.Mvc.Controllers
             _aboutUsPageInfo = aboutUsPageInfo.Value;
         }
 
+        [Route("index")]
+        [Route("anasayfa")]
+        [Route("")] 
         [HttpGet]
         public async Task<IActionResult> Index(int? categoryId,int currentPage=1,int pageSize=5, bool isAscending = false)
         {
@@ -37,16 +41,22 @@ namespace EA.BlogProject.Mvc.Controllers
                 : _articleService.GetAllByPagingAsync(categoryId.Value, currentPage, pageSize,isAscending));
             return View(articlesResult.Data);
         }
+        [Route("hakkimizda")]
+        [Route("hakkinda")]
         [HttpGet]
         public IActionResult About()
         { 
             return View(_aboutUsPageInfo);
         }
+
+        [Route("iletisim")] 
         [HttpGet]
         public IActionResult Contact()
         { 
             return View();
         }
+
+        [Route("iletisim")] 
         [HttpPost]
         public IActionResult Contact(EmailSendDto emailSendDto)
         {
@@ -63,6 +73,7 @@ namespace EA.BlogProject.Mvc.Controllers
             return View(emailSendDto);
         }
 
+        [Route("sayfabulunamadi")] 
         [HttpGet]
         public IActionResult PageNotFound()
         {
